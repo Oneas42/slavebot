@@ -123,14 +123,14 @@ async def repeat(ctx, *, arg):
 
 @bot.command(name='create', help='Create a Character')
 async def create_char(ctx):
-    char_hp = random.choice(range(1,6))
-    char_atk = random.choice(range(1,6))
-    char_def = random.choice(range(1,6))
-    char_spd = random.choice(range(1,6))
-    char_rcv = random.choice(range(1,6))
-
-    char_tot_stats = char_hp + char_atk + char_def + char_spd + char_rcv
+    char_tot_stats = 0
     while char_tot_stats < 15:
+        char_hp = random.choice(range(1,6))
+        char_atk = random.choice(range(1,6))
+        char_def = random.choice(range(1,6))
+        char_spd = random.choice(range(1,6))
+        char_rcv = random.choice(range(1,6))
+        char_tot_stats = char_hp + char_atk + char_def + char_spd + char_rcv
         if char_tot_stats >= 15:
             break
     await ctx.send(
